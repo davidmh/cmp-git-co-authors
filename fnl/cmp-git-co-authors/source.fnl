@@ -9,7 +9,7 @@
   :git-co-authors)
 
 (fn source.get_keyword_pattern []
-  "Co-authored-by:")
+  "Co-authored-by")
 
 (fn source.get_trigger_characters []
   [":"])
@@ -47,9 +47,9 @@
   ;; turn the dictionary of emails by author name into a list of items
   (local items [])
   (each [name emails (pairs emails-by-author-name)]
-    (local label (.. name " <" (. emails 1) ">"))
-    (table.insert items {:label label
-                         :insertText label
+    (local insert-text (.. name " <" (. emails 1) ">"))
+    (table.insert items {:label (.. "Co-authored-by: " insert-text)
+                         :insertText insert-text
                          :filterText (.. name " " (table.concat emails " "))}))
 
   (callback {:items items}))

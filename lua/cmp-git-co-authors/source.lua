@@ -8,7 +8,7 @@ source.get_debug_name = function()
   return "git-co-authors"
 end
 source.get_keyword_pattern = function()
-  return "Co-authored-by:"
+  return "Co-authored-by"
 end
 source.get_trigger_characters = function()
   return {":"}
@@ -36,8 +36,8 @@ source.complete = function(self, params, callback)
   end
   local items = {}
   for name, emails in pairs(emails_by_author_name) do
-    local label = (name .. " <" .. emails[1] .. ">")
-    table.insert(items, {label = label, insertText = label, filterText = (name .. " " .. table.concat(emails, " "))})
+    local insert_text = (name .. " <" .. emails[1] .. ">")
+    table.insert(items, {label = ("Co-authored-by: " .. insert_text), insertText = insert_text, filterText = (name .. " " .. table.concat(emails, " "))})
   end
   return callback({items = items})
 end
