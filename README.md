@@ -1,6 +1,6 @@
 # cmp-git-co-authors
 
-Git author completion source for [nvim-cmp] to write `Co-author-by` credits in commit messages.
+Git author completion source for [nvim-cmp] to write `Co-authored-by` credits in commit messages.
 
 
 https://github.com/davidmh/cmp-git-co-authors/assets/594302/0b7439ec-556a-4b27-883c-c3a2b0d58013
